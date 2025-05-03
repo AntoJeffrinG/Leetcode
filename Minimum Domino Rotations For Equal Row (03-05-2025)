@@ -1,0 +1,34 @@
+from collections import Counter
+class Solution:
+    def minDominoRotations(self, tops: List[int], bottoms: List[int]) -> int:
+
+        res = float('inf')
+        for value in range(1,7):
+            top_swap = bottom_swap = 0
+            valid = True
+            for t,b in zip(tops,bottoms):
+                if t != value and b != value:
+                    valid = False
+                    break
+                
+                if t != value:
+                    top_swap += 1
+
+                if b != value:
+                    bottom_swap += 1
+
+            if valid:
+                res = min(res,top_swap,bottom_swap)
+        return -1 if res == float('inf') else res
+
+                
+
+
+
+
+
+
+
+
+            
+
