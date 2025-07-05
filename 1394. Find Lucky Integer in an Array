@@ -1,0 +1,15 @@
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        freq = {}
+        for i in arr:
+            if i in freq:
+                freq[i] += 1
+            else:
+                freq[i] = 1
+
+        largest = -1
+        for key,val in freq.items():
+            if key == val and val > largest:
+                largest = val
+        
+        return largest
